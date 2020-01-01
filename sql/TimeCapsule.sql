@@ -8,22 +8,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema TimeCapsule
+-- Schema timecapsule
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `TimeCapsule` ;
+DROP SCHEMA IF EXISTS `timecapsule` ;
 
 -- -----------------------------------------------------
--- Schema TimeCapsule
+-- Schema timecapsule
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `TimeCapsule` DEFAULT CHARACTER SET utf8mb4 ;
-USE `TimeCapsule` ;
+CREATE SCHEMA IF NOT EXISTS `timecapsule` DEFAULT CHARACTER SET utf8mb4 ;
+USE `timecapsule` ;
 
 -- -----------------------------------------------------
 -- Table `TimeCapsule`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TimeCapsule`.`user` ;
+DROP TABLE IF EXISTS `timecapsule`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `TimeCapsule`.`user` (
+CREATE TABLE IF NOT EXISTS `timecapsule`.`user` (
   `id` BIGINT(10) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -40,11 +40,11 @@ COMMENT = 'Information for all member. ';
 
 
 -- -----------------------------------------------------
--- Table `TimeCapsule`.`capsule`
+-- Table `timecapsule`.`capsule`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TimeCapsule`.`capsule` ;
+DROP TABLE IF EXISTS `timecapsule`.`capsule` ;
 
-CREATE TABLE IF NOT EXISTS `TimeCapsule`.`capsule` (
+CREATE TABLE IF NOT EXISTS `timecapsule`.`capsule` (
   `id` BIGINT(10) NOT NULL,
   `content` VARCHAR(4096) NOT NULL,
   `createtime` DATETIME NOT NULL,
@@ -59,11 +59,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `TimeCapsule`.`admin`
+-- Table `timecapsule`.`admin`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TimeCapsule`.`admin` ;
+DROP TABLE IF EXISTS `timecapsule`.`admin` ;
 
-CREATE TABLE IF NOT EXISTS `TimeCapsule`.`admin` (
+CREATE TABLE IF NOT EXISTS `timecapsule`.`admin` (
   `id` BIGINT(10) NOT NULL,
   `account` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,

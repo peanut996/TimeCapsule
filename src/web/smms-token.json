@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "code": "success",
+  "message": "Get API token success.",
+  "data": {
+    "token": "aX5PWTb3ozErsp7EMYoRjilf8CYmwAJC"
+  },
+  "RequestId": "44210183-35F4-4DFA-B733-6A01390A00BC"
+}

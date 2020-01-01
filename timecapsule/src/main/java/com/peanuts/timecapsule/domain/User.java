@@ -1,0 +1,120 @@
+package com.peanuts.timecapsule.domain;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.Objects;
+
+@Data
+@Entity
+@Table(name = "user", schema = "timecapsule", catalog = "")
+public class User {
+    private long id;
+    private String username;
+    private String password;
+    private String nickname;
+    private String email;
+    private String createtime;
+    private String updatetime;
+    private String avatar;
+
+    @Id
+    @Column(name = "id")
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Basic
+    @Column(name = "nickname")
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Basic
+    @Column(name = "createtime")
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    @Basic
+    @Column(name = "updatetime")
+    public String getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(String updatetime) {
+        this.updatetime = updatetime;
+    }
+
+    @Basic
+    @Column(name = "avatar")
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User that = (User) o;
+        return id == that.id &&
+                Objects.equals(username, that.username) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(createtime, that.createtime) &&
+                Objects.equals(updatetime, that.updatetime) &&
+                Objects.equals(avatar, that.avatar);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, nickname, email, createtime, updatetime, avatar);
+    }
+}
