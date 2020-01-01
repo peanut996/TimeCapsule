@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Data
 @Entity
-@Table(name = "user", schema = "timecapsule", catalog = "")
+@Table(name = "user", schema = "timecapsule")
 public class User {
     private long id;
     private String username;

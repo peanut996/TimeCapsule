@@ -8,9 +8,10 @@ import java.util.*;
 
 @RestController
 @RequestMapping(value="/user")
+//TODO
 public class UserController {
     //A Thread-safe Map
-    static Map<String, User> users = Collections.synchronizedMap(new HashMap<String, User>());
+    static Map<String, User> users = Collections.synchronizedMap(new HashMap<>());
 
 
     /*
@@ -21,8 +22,7 @@ public class UserController {
     @GetMapping("/")
     public List<User> getAllUser(){
         //TODO
-        List<User> userlist=new ArrayList<User>(users.values());
-        return  userlist;
+        return new ArrayList<>(users.values());
     }
 
     /*
@@ -78,7 +78,6 @@ public class UserController {
     }
 
     //@PatchMapping("/{username}")
-    //TODO
 
 
     /*
