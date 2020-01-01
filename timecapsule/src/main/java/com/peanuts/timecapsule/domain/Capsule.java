@@ -1,6 +1,8 @@
 package com.peanuts.timecapsule.domain;
 
 import lombok.Data;
+import org.hibernate.annotations.GeneratorType;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -8,6 +10,7 @@ import java.util.Objects;
 
 @Data
 @Entity
+@GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 @Table(name = "capsule", schema = "timecapsule")
 public class Capsule {
     private long id;
@@ -71,6 +74,7 @@ public class Capsule {
 
     @Basic
     @Column(name = "uuid")
+
     public String getUuid() {
         return uuid;
     }
