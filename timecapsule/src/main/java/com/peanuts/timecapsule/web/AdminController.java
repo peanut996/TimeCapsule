@@ -47,6 +47,7 @@ public class AdminController {
     }
 
 
+
     @ApiOperation(value="更新管理员")
     @PutMapping("/{account}")
     @ResponseStatus(HttpStatus.CREATED)
