@@ -7,6 +7,7 @@ import com.peanuts.timecapsule.service.AdminService;
 import com.peanuts.timecapsule.utils.Utils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,7 @@ import java.util.*;
 @RequestMapping("/admin")
 public class AdminController {
 
+    @Autowired
     private AdminService adminService;
 
     @ApiOperation(value = "获取所有管理员")
