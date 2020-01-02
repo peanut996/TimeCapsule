@@ -5,6 +5,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.peanuts.timecapsule.domain.User;
+import com.peanuts.timecapsule.service.UserService;
 import com.peanuts.timecapsule.web.UserController;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -18,10 +20,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class TimeCapsuleApplicationTests {
     private MockMvc mvc;
+    private UserService userService;
 
     @Before
     public void setUp() throws Exception {
@@ -29,7 +34,11 @@ class TimeCapsuleApplicationTests {
     }
 
     @Test
-    public  void testUserController() throws Exception{
+    public  void testUserService() throws  Exception{
+        List<User> userList = userService.findAll();
+
+    }
+//    public  void testUserController() throws Exception{
         //testUserController
 //        RequestBuilder request;
 //        test get("/user/)
@@ -37,10 +46,7 @@ class TimeCapsuleApplicationTests {
 //        mvc.perform(request)
 //                .andExpect(status().isOk())
 //                .andExpect(content().string(equalTo("[]")));
-
-
-
-    }
+//    }
 
 
 }

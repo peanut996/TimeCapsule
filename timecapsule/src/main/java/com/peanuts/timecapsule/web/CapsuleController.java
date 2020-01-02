@@ -3,8 +3,12 @@ package com.peanuts.timecapsule.web;
 import com.peanuts.timecapsule.domain.Admin;
 import com.peanuts.timecapsule.domain.Capsule;
 import com.peanuts.timecapsule.domain.User;
+import com.peanuts.timecapsule.service.CapsuleService;
+import com.peanuts.timecapsule.utils.Utils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -13,41 +17,47 @@ import java.util.*;
 @RequestMapping("/capsule")
 //TODO
 public class CapsuleController {
-    //represent the collections
-    static Map<Long, Capsule> capsules = Collections.synchronizedMap(new HashMap<>());
+
+    @Autowired
+    private  CapsuleService capsuleService ;
+
     @ApiOperation(value = "获取所有的胶囊")
     @GetMapping("/")
+    @ResponseStatus(HttpStatus.OK)
     public List<Capsule> getAllCapsule(){
-        ArrayList<Capsule> capsules = new ArrayList<>(CapsuleController.capsules.values());
-        return capsules;
+        return capsuleService.findAll();
     }
 
     @ApiOperation(value = "添加胶囊")
     @PostMapping("/")
+    @ResponseStatus(HttpStatus.CREATED)
     public String postCapsule(@RequestBody Capsule capsule ){
-        capsules.put(capsule.getId(),capsule);
+        capsuleService.addCapsule(capsule);
         return "success";
     }
 
     @ApiOperation(value = "查询胶囊")
-    @GetMapping("/{id}")
-    public Capsule getCapsule(@PathVariable Long id){
-        return  capsules.get(id);
+    @GetMapping("/{uuid}")
+    @ResponseStatus(HttpStatus.OK)
+    public Capsule getCapsule(@PathVariable String uuid){
+        return  capsuleService.findByUuid(uuid);
     }
 
     @ApiOperation(value="更新胶囊")
-    @PutMapping("/{id}")
-    public String putCapsule(@PathVariable Long id,@RequestBody Capsule capsule){
-        Capsule c=capsules.get(id);
-        c=capsule;
-        capsules.put(id,c);
+    @PutMapping("/{uuid}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public String putCapsule(@PathVariable String  uuid,@RequestBody Capsule capsule){
+        Capsule c=capsuleService.findByUuid(uuid);
+        Utils.copyPropertiesIgnoreNull(capsule,c);
+        capsuleService.updateCapsule(c);
         return  "success";
     }
 
     @ApiOperation(value = "删除胶囊")
-    @DeleteMapping("/{id}")
-    public  String deleteCapsule(@PathVariable Long id,@RequestBody Capsule capsule){
-        capsules.remove(id);
+    @DeleteMapping("/{uuid}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public  String deleteCapsule(@PathVariable String uuid,@RequestBody Capsule capsule){
+        capsuleService.deleteByUuid(uuid);
         return "success";
     }
 }

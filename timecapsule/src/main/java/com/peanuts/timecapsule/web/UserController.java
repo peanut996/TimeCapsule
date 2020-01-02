@@ -2,8 +2,11 @@ package com.peanuts.timecapsule.web;
 
 
 import com.peanuts.timecapsule.domain.User;
+import com.peanuts.timecapsule.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -12,8 +15,9 @@ import java.util.*;
 @RequestMapping(value="/user")
 //TODO
 public class UserController {
-    //A Thread-safe Map
-    static Map<String, User> users = Collections.synchronizedMap(new HashMap<>());
+
+    @Autowired
+    private  UserService userService ;
 
 
     /*
@@ -23,9 +27,9 @@ public class UserController {
      */
     @ApiOperation(value = "列举所有的用户")
     @GetMapping("/")
+    @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUser(){
-        //TODO
-        return new ArrayList<>(users.values());
+        return userService.findAll();
     }
 
     /*
@@ -35,8 +39,9 @@ public class UserController {
      */
     @ApiOperation(value = "添加用户")
     @PostMapping("/")
+    @ResponseStatus(HttpStatus.CREATED)
     public  String postUser(@RequestBody User user){
-        users.put(user.getUsername(),user);
+        userService.addUser(user);
         return "success";
     }
 
@@ -48,10 +53,12 @@ public class UserController {
      */
     @ApiOperation(value = "查询用户")
     @GetMapping("/{username}")
+    @ResponseStatus(HttpStatus.OK)
+
     public User getUser(@PathVariable String username) {
         // handle the request from "/users/{username}"，get the User by username in url
         // username from url can bind the variable by '@PathVariable'
-        return users.get(username);
+        return userService.findByUsername(username);
     }
 
 
@@ -63,22 +70,9 @@ public class UserController {
     */
     @ApiOperation(value = "更新用户")
     @PutMapping("/{username}")
+    @ResponseStatus(HttpStatus.CREATED)
     public String putUser(@PathVariable String username, @RequestBody User user) {
-        User u = users.get(username);
-        //update message
-        try {
-            /*
-            u.setAttribute(user.getAttribute)
-
-             */
-            u=user;
-        }catch (Exception e){
-            e.printStackTrace();
-            e.getMessage();
-            System.out.println("Catch a  UpdateUserException! ");
-
-        }
-        users.put(username, u);
+        userService.updateUser(username,user);
         return "success";
     }
 
@@ -93,9 +87,10 @@ public class UserController {
      */
     @ApiOperation(value = "删除用户")
     @DeleteMapping("/{username}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deleteUser(@PathVariable String  username) {
         // 处理"/users/{id}"的DELETE请求，用来删除User
-        users.remove(username);
+        userService.deleteByUsername(username);
         return "success";
     }
 
