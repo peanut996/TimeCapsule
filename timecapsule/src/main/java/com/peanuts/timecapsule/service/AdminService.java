@@ -1,4 +1,4 @@
 package com.peanuts.timecapsule.service;
 
-public class AdminCapsule {
+public class AdminService {
 }

@@ -1,4 +1,4 @@
 package com.peanuts.timecapsule.repository;
 
-public class CapsuleRepository {
+public interface CapsuleRepository {
 }
