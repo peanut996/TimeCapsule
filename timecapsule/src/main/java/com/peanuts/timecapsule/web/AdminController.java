@@ -6,6 +6,7 @@ import com.peanuts.timecapsule.domain.User;
 import com.peanuts.timecapsule.service.AdminService;
 import com.peanuts.timecapsule.utils.Utils;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +43,7 @@ public class AdminController {
     @ApiOperation(value = "查询管理员")
     @GetMapping("/{account}")
     @ResponseStatus(HttpStatus.OK)
+    @ApiImplicitParam(paramType = "path", dataType = "String", name = "account", value = "账号", required = true, example = "1")
     public  Admin getAdmin(@PathVariable String account){
         return  adminService.getByAccount(account);
     }
@@ -51,6 +53,7 @@ public class AdminController {
     @ApiOperation(value="更新管理员")
     @PutMapping("/{account}")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiImplicitParam(paramType = "path", dataType = "String", name = "account", value = "账号", required = true, example = "1")
     public  String putAdmin(@PathVariable String account,@RequestBody Admin admin){
         Admin a =adminService.getByAccount(account);
         Utils.copyPropertiesIgnoreNull(admin,a);
@@ -61,6 +64,7 @@ public class AdminController {
     @ApiOperation(value="删除管理员")
     @DeleteMapping("/{account}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiImplicitParam(paramType = "path", dataType = "String", name = "account", value = "账号", required = true, example = "1")
     public  String deleteAdmin(@PathVariable String account){
         adminService.deleteByAccount(account);
         return "success";
