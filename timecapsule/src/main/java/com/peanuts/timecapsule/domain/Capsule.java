@@ -30,11 +30,13 @@ public class Capsule {
     private String username;
 
 
-    @ApiModelProperty(value = "胶囊KEY 唯一标识")
+    @ApiModelProperty(value = "胶囊KEY")
     private String uuid;
 
     @ApiModelProperty(value = "主键无实际意义")
     private String warncontent;
+
+    @ApiModelProperty(value = "接受提示邮箱" )
     private String email;
 
     @Id

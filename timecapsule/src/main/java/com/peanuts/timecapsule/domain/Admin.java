@@ -1,5 +1,7 @@
 package com.peanuts.timecapsule.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,10 +10,20 @@ import java.util.Objects;
 @Entity
 @Table(name = "admin", schema = "timecapsule")
 public class Admin {
+
+    @ApiModelProperty(value = "主键")
     private long id;
+
+    @ApiModelProperty(value = "管理员账号")
     private String account;
+
+    @ApiModelProperty(value = "密码")
     private String password;
+
+    @ApiModelProperty(value = "描述")
     private String description;
+
+    @ApiModelProperty(value = "头像地址")
     private String avatar;
 
     @Id

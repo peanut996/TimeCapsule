@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 
@@ -29,10 +30,10 @@ public class User {
     private String email;
 
     @ApiModelProperty(value = "创建时间")
-    private String createtime;
+    private Timestamp createtime;
 
     @ApiModelProperty(value = "更新时间")
-    private String updatetime;
+    private Timestamp updatetime;
 
     @ApiModelProperty(value = "头像地址")
     private String avatar;
@@ -91,21 +92,21 @@ public class User {
 
     @Basic
     @Column(name = "createtime")
-    public String getCreatetime() {
+    public Timestamp getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(String createtime) {
+    public void setCreatetime(Timestamp createtime) {
         this.createtime = createtime;
     }
 
     @Basic
     @Column(name = "updatetime")
-    public String getUpdatetime() {
+    public Timestamp getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(Timestamp updatetime) {
         this.updatetime = updatetime;
     }
 
