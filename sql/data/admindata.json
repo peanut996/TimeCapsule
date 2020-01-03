@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "account": "peanuts",
+        "password": "123456",
+        "description": "Administartors for the whole project",
+        "avatar": "https://sm.ms/avatar.img"
+    },
+    {
+        "id": 2,
+        "account": "admin",
+        "password": "849421294",
+        "description": "Administartors for the whole project",
+        "avatar": "https://sm.ms/avatar.img"
+    }
+]

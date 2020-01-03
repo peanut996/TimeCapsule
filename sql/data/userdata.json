@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "username": "peanuts",
+        "password": "123456",
+        "nickname": "Peanuts",
+        "email": "849421294@qq.com",
+        "createtime": "2020-01-01 00:00",
+        "updatetime": "2020-01-01 00:00",
+        "avatar": "https://sm.ms/avatar.img"
+    },
+    {
+        "id": 2,
+        "username": "onepeanut",
+        "password": "123456",
+        "nickname": "Peanuts",
+        "email": "846471144@qq.com",
+        "createtime": "2020-01-01 00:00",
+        "updatetime": "2020-01-01 00:00",
+        "avatar": "https://sm.ms/avatar.img"
+    }
+]
