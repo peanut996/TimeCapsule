@@ -19,19 +19,11 @@ import java.util.*;
 @Api(tags = "用户管理")
 @RestController
 @RequestMapping(value="/user")
-//TODO
+
 public class UserController {
 
     @Autowired
     private  UserService userService ;
-
-//
-//    public void init() {
-//        serverHandler = this;
-//        serverHandler.healthDataService = this.healthDataService;
-//        // 初使化时将已静态化的testService实例化
-//    }
-
 
     /*
     function:getUserList()

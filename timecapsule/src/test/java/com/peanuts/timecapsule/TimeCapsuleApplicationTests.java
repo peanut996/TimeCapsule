@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,6 +26,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 
@@ -32,36 +34,30 @@ import java.util.List;
 @SpringBootTest
 
 class TimeCapsuleApplicationTests {
-    private MockMvc usermvc;
-//    private MockMvc capsulemvc;
-//    private MockMvc adminmvc;
+    private MockMvc mvc;
+
+    @Autowired
+    private WebApplicationContext webApplicationContext;
 
     @BeforeEach
     public void setUp() throws Exception {
-        usermvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
-//        capsulemvc = MockMvcBuilders.standaloneSetup(new CapsuleController()).build();
-//        adminmvc = MockMvcBuilders.standaloneSetup(new AdminController()).build();
+          mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 }
 
     @Test
-    public  void testUserController() throws  Exception{
-        RequestBuilder requestBuilder=MockMvcRequestBuilders.get("/user/");
+    public  void testUserController() throws  Exception {
         //get all user
-        usermvc.perform(MockMvcRequestBuilders
+        mvc.perform(MockMvcRequestBuilders
                 .get("/user/"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
 
         //post one user
-        usermvc.perform(MockMvcRequestBuilders.get("/user/peanuts"))
+        mvc.perform(MockMvcRequestBuilders.get("/user/peanuts"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
         
     }
-//    @Test
-//    public  void testCapsuleService() throws Exception{
-//
-//    }
 
 
 
