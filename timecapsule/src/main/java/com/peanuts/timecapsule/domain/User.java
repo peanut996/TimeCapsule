@@ -1,28 +1,49 @@
 package com.peanuts.timecapsule.domain;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Objects;
 
+
 @Data
 @Entity
 @Table(name = "user", schema = "timecapsule")
 public class User {
+    @ApiModelProperty(value = "主键无实际意义")
     private long id;
+
+    @ApiModelProperty(value = "用户名",required = true)
     private String username;
+
+    @ApiModelProperty(value = "密码",required = true)
     private String password;
+
+    @ApiModelProperty(value = "昵称")
     private String nickname;
+
+    @ApiModelProperty(value = "邮箱",required = true)
     private String email;
+
+    @ApiModelProperty(value = "创建时间")
     private String createtime;
+
+    @ApiModelProperty(value = "更新时间")
     private String updatetime;
+
+    @ApiModelProperty(value = "头像地址")
     private String avatar;
 
     @Id
     @Column(name = "id")
+
     public long getId() {
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;

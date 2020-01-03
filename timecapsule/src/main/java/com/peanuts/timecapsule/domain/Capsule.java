@@ -1,5 +1,6 @@
 package com.peanuts.timecapsule.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
@@ -13,12 +14,26 @@ import java.util.Objects;
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
 @Table(name = "capsule", schema = "timecapsule")
 public class Capsule {
+    @ApiModelProperty(value = "主键无实际意义")
     private long id;
+
+    @ApiModelProperty(value = "胶囊内容",required = true)
     private String content;
+
+    @ApiModelProperty(value = "胶囊创建时间")
     private Timestamp createtime;
+
+    @ApiModelProperty(value = "胶囊期限时间",required = true)
     private Timestamp opentime;
+
+    @ApiModelProperty(value = "用户名",required = true)
     private String username;
+
+
+    @ApiModelProperty(value = "胶囊KEY 唯一标识")
     private String uuid;
+
+    @ApiModelProperty(value = "主键无实际意义")
     private String warncontent;
     private String email;
 

@@ -56,7 +56,7 @@ public class CapsuleController {
     @ApiOperation(value = "删除胶囊")
     @DeleteMapping("/{uuid}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public  String deleteCapsule(@PathVariable String uuid,@RequestBody Capsule capsule){
+    public  String deleteCapsule(@PathVariable String uuid){
         capsuleService.deleteByUuid(uuid);
         return "success";
     }

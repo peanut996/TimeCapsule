@@ -30,23 +30,14 @@ class TimeCapsuleApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
-    }
+    mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
+}
 
     @Test
     public  void testUserService() throws  Exception{
-        List<User> userList = userService.findAll();
-
+        
     }
-//    public  void testUserController() throws Exception{
-        //testUserController
-//        RequestBuilder request;
-//        test get("/user/)
-//        request = get("/users/");
-//        mvc.perform(request)
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(equalTo("[]")));
-//    }
+
 
 
 }
