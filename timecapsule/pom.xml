@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>timecapsule</name>
     <description>A backend used Spring Boot for project 'TimeCapsule'</description>
+<!--    <packaging>war</packaging>-->
 
     <properties>
         <java.version>1.8</java.version>
@@ -34,7 +35,22 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+<!--            打包war　屏蔽内嵌的tomcat-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
+
+<!--        提供Tomcat的原生支持-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat</groupId>-->
+<!--            <artifactId>tomcat-servlet-api</artifactId>-->
+<!--            <version>8.0.36</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>org.mybatis.spring.boot</groupId>-->
 <!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
@@ -65,29 +81,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-<!--            <scope>test</scope>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.junit.vintage</groupId>-->
-<!--                    <artifactId>junit-vintage-engine</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>de.flapdoodle.embed</groupId>-->
-<!--            <artifactId>de.flapdoodle.embed.mongo</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.restdocs</groupId>
             <artifactId>spring-restdocs-mockmvc</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

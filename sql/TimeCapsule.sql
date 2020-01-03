@@ -55,8 +55,8 @@ DROP TABLE IF EXISTS `capsule`;
 CREATE TABLE `capsule` (
   `id` bigint(10) NOT NULL,
   `content` varchar(4096) NOT NULL,
-  `createtime` datetime NOT NULL,
-  `opentime` datetime NOT NULL,
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `opentime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `username` varchar(45) NOT NULL,
   `uuid` varchar(45) NOT NULL COMMENT 'unqiue key for the capsule. ',
   `warncontent` varchar(255) DEFAULT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE `capsule` (
 
 LOCK TABLES `capsule` WRITE;
 /*!40000 ALTER TABLE `capsule` DISABLE KEYS */;
-INSERT INTO `capsule` VALUES (1,'心想事成，万事如意','2020-01-01 00:00:00','2020-02-01 00:00:00','peanuts','0399b02e-c6ab-447c-b880-c9cdb91acb4f','别偷看！','849421294@qq.com');
+INSERT INTO `capsule` VALUES (1,'心想事成，万事如意','2019-12-31 16:00:00','2020-01-31 16:00:00','peanuts','0399b02e-c6ab-447c-b880-c9cdb91acb4f','别偷看！','849421294@qq.com');
 /*!40000 ALTER TABLE `capsule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,8 +89,8 @@ CREATE TABLE `user` (
   `password` varchar(45) NOT NULL,
   `nickname` varchar(45) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
-  `createtime` varchar(45) DEFAULT NULL,
-  `updatetime` varchar(45) DEFAULT NULL COMMENT 'the time user change the profile latestly. ',
+  `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'the time user change the profile latestly. ',
   `avatar` varchar(255) DEFAULT NULL COMMENT 'get image from smms api',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
@@ -103,7 +103,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'peanuts','123456','Peanuts','849421294@qq.com','2020-01-01 00:00','2020-01-01 00:00','https://sm.ms/avatar.img');
+INSERT INTO `user` VALUES (1,'peanuts','123456','Peanuts','849421294@qq.com','2019-12-31 16:00:00','2020-01-01 15:59:59','https://sm.ms/avatar.img');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -116,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-02 20:24:07
+-- Dump completed on 2020-01-04  2:08:45

@@ -5,8 +5,8 @@
         "password": "123456",
         "nickname": "Peanuts",
         "email": "849421294@qq.com",
-        "createtime": "2020-01-01 00:00",
-        "updatetime": "2020-01-01 00:00",
+        "createtime": "2019-12-31T16:00:00.000+0000",
+        "updatetime": "2020-01-01T15:59:59.000+0000",
         "avatar": "https://sm.ms/avatar.img"
     },
     {
@@ -15,8 +15,8 @@
         "password": "123456",
         "nickname": "Peanuts",
         "email": "846471144@qq.com",
-        "createtime": "2020-01-01 00:00",
-        "updatetime": "2020-01-01 00:00",
+        "createtime": "2019-12-31T16:00:00.000+0000",
+        "updatetime": "2020-01-01T15:59:59.000+0000",
         "avatar": "https://sm.ms/avatar.img"
     }
 ]
