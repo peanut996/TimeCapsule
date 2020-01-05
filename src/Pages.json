@@ -1,3 +1,0 @@
-{
-    "swagger": "https://{$domain}:{$port}/swagger-ui.html"
-}
