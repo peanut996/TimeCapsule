@@ -17,6 +17,7 @@ import java.util.*;
 
 
 @Api(tags = "管理员管理")
+@CrossOrigin
 @RestController
 @RequestMapping("/admin")
 public class AdminController {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <input type="text" v-model ="username" />
+        <br>
+        <span> username : {{ username }}</span>
+        <br>
+        <input type="text" v-model ="nickname" />
+        <br>
+        <span>nickname : {{ nickname}}</span>
+        <br>
+        <input type="button" value="GetAllUser" @click='getall'/>
+        <input type="button" value="GetUserByName" @click='getuser'/>
+        <input type="button" value="PostOneUser" @click='postuser'/>
+        <input type="button" value="UpdateUserByName" @click='updateuser'/>
+        <input type="button" value="DeleteUserByName" @click='deleteuser'/>
+        <br>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var vm =new Vue({
+            el:'#app',
+            data:{
+                message:'hello world!',
+                username:"onepeanut",
+                user:    {
+                    "id": 2,
+                    "username": "onepeanut",
+                    "password": "123456",
+                    "nickname": "Peanuts",
+                    "email": "846471144@qq.com",
+                    "createtime": "2019-12-31T16:00:00.000+0000",
+                    "updatetime": "2020-01-01T15:59:59.000+0000",
+                    "avatar": "https://sm.ms/avatar.img"
+                 },
+                 nickname:""
+            },
+
+            methods:{
+                getall:function(){
+                    axios.get("http://localhost:8080/user/").then(function(response){console.log(response.data)});
+                },
+                getuser:function(){
+                    var that= this;
+                    let username =that.username;
+                    axios.get("http://localhost:8080/user/"+username).then(response=>console.log(response.data));
+                    
+
+                },
+                postuser:function(){
+                    var that = this;
+                    console.log(that.user);
+                    axios.post("http://localhost:8080/user/",{
+                    "id": 2,
+                    "username": "onepeanut",
+                    "password": "123456",
+                    "nickname": "Peanuts",
+                    "email": "846471144@qq.com",
+                    "createtime": "2019-12-31T16:00:00.000+0000",
+                    "updatetime": "2020-01-01T15:59:59.000+0000",
+                    "avatar": "https://sm.ms/avatar.img"
+                 }).then(response=>console.log(response.data));
+
+                },
+                deleteuser:function(){
+                    let username=this.username;
+                    console.log("http://localhost:8080/user/"+username);
+                    axios.delete("http://localhost:8080/user/"+username).then(console.log("Delete Success!"))
+                    
+                },
+                updateuser:function(){
+                    var that = this;
+                    let username=that.username;
+                    that.user.nickname=that.nickname;
+                    axios.put("http://localhost:8080/user/"+username,that.user).then(response=>console.log("Put Success! "));
+                }
+            }
+            
+        })
+
+
+
+
+    </script>
+</body>
+</html>

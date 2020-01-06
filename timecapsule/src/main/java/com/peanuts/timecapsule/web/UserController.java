@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import java.util.*;
 
 @Api(tags = "用户管理")
+@CrossOrigin
 @RestController
 @RequestMapping(value="/user")
 

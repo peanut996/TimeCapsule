@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 @Api(tags = "胶囊管理")
+@CrossOrigin
 @RestController
 @RequestMapping("/capsule")
 //TODO
