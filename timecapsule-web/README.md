@@ -1,4 +1,4 @@
-# timecapsule-web-user
+# timecapsule-web
 
 ## Project setup
 ```
