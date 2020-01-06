@@ -1,0 +1,4 @@
+{
+    "axios": "https://unpkg.com/axios/dist/axios.min.js",
+    "vue": "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+}
