@@ -11,7 +11,8 @@ export default {
   },
   data: function () {
     return {
-      islogin: false
+      islogin: false,
+      isregister: true
     }
   }
 }

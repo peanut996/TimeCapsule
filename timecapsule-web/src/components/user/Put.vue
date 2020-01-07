@@ -38,6 +38,7 @@ export default {
   data: function () {
     return {
       // 验证是否登录
+      // isregister: true,
       islogin: false,
       capsule: {
         content: '',

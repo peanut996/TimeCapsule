@@ -5,8 +5,9 @@
         <div class="nav">
             <ul>
                 <li><router-link  class="nav-item" active-class="is-active" to="/user">首页</router-link ><li>
-                <li v-if="!this.$parent.islogin"><router-link  class="nav-item" active-class="is-active" to="/user-login">登录</router-link ><li>
-                <li v-if="!this.$parent.islogin"><router-link  class="nav-item" active-class="is-active" to="/user-profile">用户</router-link ><li>
+                <li v-if="!this.$parent.$parent.islogin"><router-link  class="nav-item" active-class="is-active" to="/user-login">登录</router-link ><li>
+                <li v-if="!this.$parent.$parent.isregister"><router-link  class="nav-item" active-class="is-active" to="/user-register">注册</router-link ><li>
+                <li v-if="this.$parent.$parent.islogin"><router-link  class="nav-item" active-class="is-active" to="/user-profile">用户</router-link ><li>
                 <li><router-link class="nav-item" active-class="is-active" to="/user-put">添加</router-link></li>
                 <li><router-link  class="nav-item" active-class="is-active" to="/user-open">打开</router-link ></li>
             </ul>
@@ -21,7 +22,7 @@ export default {
   name: 'userheader',
   data: function () {
     return {
-      ActiveName: 'Hello World'
+      NavName: '登录'
     }
   },
   methods: {

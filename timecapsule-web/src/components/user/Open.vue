@@ -26,7 +26,7 @@ export default {
   components: { userheader },
   data: function () {
     return {
-      isget: false,
+      // isregister: true,
       capsule: {
         content: '',
         opentime: ''

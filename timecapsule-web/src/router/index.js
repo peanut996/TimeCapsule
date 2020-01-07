@@ -6,6 +6,8 @@ import User from '../views/User.vue'
 import Put from '../components/user/Put.vue'
 import Open from '../components/user/Open.vue'
 import Login from '../components/user/Login.vue'
+import Register from '../components/user/Register.vue'
+import Profile from '../components/user/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -23,12 +25,25 @@ const routes = [
   {
     path: '/user-put',
     name: 'user-put',
-    component: Put
+    component: Put,
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/user-login',
     name: 'user-login',
     component: Login
+  },
+  {
+    path: '/user-register',
+    name: 'user-register',
+    component: Register
+  },
+  {
+    path: '/user-profile',
+    name: 'user-profile',
+    component: Profile
   },
   {
     path: '/user-open',
@@ -52,5 +67,25 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   routes
 })
+
+// router.beforeEach((to, from, next) => {
+//   // 根据字段判断是否路由过滤
+//   if (to.matched.some(record => record.meta.auth)) {
+//     if (this.store.state.islogin === true) {
+//       next()
+//     } else {
+//       // 防止无限循环
+//       if (to.name === 'user-login') {
+//         next()
+//         return
+//       }
+//       next({
+//         path: '/user-login'
+//       })
+//     }
+//   } else {
+//     next()// 若点击的是不需要验证的页面,则进行正常的路由跳转
+//   }
+// })
 
 export default router

@@ -11,6 +11,7 @@
                 <input class="form-input" type="password">
                 <p>
                     <input type="submit" @click="login" class="form-submit" value="登录">
+                    <input type="submit" @click="register" class="form-submit" value="注册">
                 </p>
             </div>
         </div>
@@ -25,15 +26,20 @@ export default {
   components: { userheader },
   data: function () {
     return {
-      islogin: false,
       username: '',
       password: ''
     }
   },
   methods: {
     login: function () {
-      this.islogin = true
+      this.$parent.islogin = true
       this.$message.success('登录成功!')
+      this.$router.push('/user-profile')
+    },
+    register: function () {
+      this.$parent.isregister = false
+      this.$message.success('前往注册页面...')
+      this.$router.push('/user-register')
     }
   }
 }
@@ -80,7 +86,7 @@ export default {
   margin-bottom: 18px;
 }
 .form-submit{
-  margin-top: 20px;
+  margin: 20px 50px 0px 0px;
   width: 60px;
 }
 
