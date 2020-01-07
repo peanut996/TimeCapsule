@@ -40,6 +40,7 @@ export default {
   margin: 50px 0px 25px 0px;
 }
 .home{
+text-align: center;
 border-block-color: red;
 height: 400px;
 font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
@@ -47,7 +48,7 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
 .home-button{
   position: relative;
   padding : 0px 0px 0px 0px;
-  margin: 75px auto ;
+  margin: 50px auto ;
 }
 .button-left{
   position: relative;

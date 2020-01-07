@@ -20,6 +20,7 @@ const routes = [
   },
   {
     path: '/user-put',
+    name: 'user-put',
     component: Put
   },
   {
@@ -41,6 +42,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  linkActiveClass: 'active',
   routes
 })
 

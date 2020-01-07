@@ -1,5 +1,6 @@
 <template>
 <div class="user-main">
+    <userheader></userheader>
     <img class="log-big" src="../assets/logo.png" alt="">
     <h1 class="title">时间胶囊</h1>
     <div class="action">
@@ -17,14 +18,16 @@
 </template>
 
 <script>
+import userheader from '../components/Header.vue'
 export default {
   name: 'user',
-  components: {}
+  components: { userheader }
 }
 </script>
 
 <style scoped>
 h1{
+  text-align: center;
  font-size: 28px;
  line-height: 42px;
  padding-bottom: 30px;
@@ -42,10 +45,15 @@ img { border-style: none; }
  width: 400px;
  margin: 50px auto;
 }
-.logo-big{
+.log-big{
   width: 400px;
   height: 200px;
   margin-bottom: 10px;
+  margin-top: 100px;
+}
+.title{
+  margin-top:40px;
+  margin-bottom: 20px;
 }
 .action {
     padding: 0 40px;
