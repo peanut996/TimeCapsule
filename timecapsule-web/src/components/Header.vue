@@ -1,5 +1,8 @@
 <template>
     <div class="header">
+        <div class="container">
+        <a class="logo" href="https://p.timepill.net/"></a>
+        </div>
     </div>
 </template>
 
@@ -27,5 +30,21 @@ export default {
     z-index: 1000;
     box-shadow: 0 0 5px #ccc;
     overflow: visible;
+}
+.container{
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.header .container {
+    overflow: visible;
+}
+.logo{
+    float: left;
+    line-height: 38px;
+    padding: 0 20px 0 45px;
+    font-size: 18px;
+    background: url(../assets/logo.gif) no-repeat scroll 0px 10px transparent;
+    color: #666;
 }
 </style>
