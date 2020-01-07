@@ -1,7 +1,9 @@
 <template>
-<userheader></userheader>
 <div>
+  <userheader></userheader>
+  <div class="user-put-main">
     This is a User-Put Page.
+  </div>
 </div>
 </template>
 
@@ -14,7 +16,10 @@ export default {
 </script>
 
 <style scoped>
-body div{
+body{
+  margin: 0px;
+}
+.user-put-main{
   margin-top: 50px;
 }
 </style>

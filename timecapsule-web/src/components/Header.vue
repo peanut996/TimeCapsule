@@ -1,6 +1,5 @@
 <template>
     <div class="header">
-        This is a head.
     </div>
 </template>
 
