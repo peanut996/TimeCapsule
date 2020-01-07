@@ -1,6 +1,17 @@
 <template>
-<div class="user">
-    <h2>User {{ $route.params.id }}</h2>
+<div class="user-main">
+    <img class="log-big" src="../assets/logo.png" alt="">
+    <h1 class="title">时间胶囊</h1>
+    <div class="action">
+      <router-link class="Put" to="user-put">
+        <span>PUT</span>
+        添加
+      </router-link>
+      <router-link class="Open" to="user-open">
+        <span>OPEN</span>
+        打开
+      </router-link>
+    </div>
     <router-view></router-view>
 </div>
 </template>
@@ -13,7 +24,52 @@ export default {
 </script>
 
 <style scoped>
-.user-body{
-    position: relative;
+h1{
+ font-size: 28px;
+ line-height: 42px;
+ padding-bottom: 30px;
+ font-weight: normal;
+}
+body{
+  font-family: 'Microsoft YaHei UI','Microsoft YaHei','微软雅黑',"MicrosoftJhengHei", '华文细黑', STHeiti, MingLiu,serif;
+}
+a{
+  text-decoration: none;
+}
+ul { list-style: none; }
+img { border-style: none; }
+.user-main{
+ width: 400px;
+ margin: 50px auto;
+}
+.logo-big{
+  width: 400px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.action {
+    padding: 0 40px;
+    height: 0px;
+    width: 320px;
+    margin: 0;
+}
+
+.action a {
+    display: block;
+    color: #333;
+    text-align: center;
+    font-size: 18px;
+}
+.action a.Put {
+    float: left;
+}
+
+.action a.Open {
+    float: right;
+}
+
+.action a span {
+    display: block;
+    font-size: 36px;
 }
 </style>
