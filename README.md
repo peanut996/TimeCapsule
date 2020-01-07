@@ -7,7 +7,7 @@
 ### 技术栈
 
 + 后端： springboot
-+ 前端： vue.js, miniprogram, flutter
++ 前端： vue.js
 
 ### 项目进度
 
