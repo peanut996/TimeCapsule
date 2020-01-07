@@ -8,6 +8,11 @@
 export default {
   name: 'app',
   components: {
+  },
+  data: function () {
+    return {
+      islogin: false
+    }
   }
 }
 </script>

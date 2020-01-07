@@ -5,6 +5,7 @@ import Admin from '../views/Admin.vue'
 import User from '../views/User.vue'
 import Put from '../components/user/Put.vue'
 import Open from '../components/user/Open.vue'
+import Login from '../components/user/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -16,12 +17,18 @@ const routes = [
   },
   {
     path: '/user',
+    name: 'user',
     component: User
   },
   {
     path: '/user-put',
     name: 'user-put',
     component: Put
+  },
+  {
+    path: '/user-login',
+    name: 'user-login',
+    component: Login
   },
   {
     path: '/user-open',

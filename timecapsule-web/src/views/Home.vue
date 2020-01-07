@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img class="home-img" alt="Vue logo" src="../assets/logo.png" width="150px" height="75px" >
-    <p>时间胶囊控制台<p>
+    <img class="home-img" alt="Vue logo" src="../assets/logo.png" width="300px" height="150px" >
+    <p class="title">时间胶囊控制台<p>
     <div class="home-button">
     <el-button class="button-left" size="medium" type="primary" @click="user" round>User</el-button>
     <div class="div-space"></div>
@@ -32,27 +32,23 @@ export default {
 </script>
 
 <style>
+.title{
+  margin: 40px 0px 60px;
+  font-size: 20px;
+}
 .div-space{
   display: inline-block;
+  margin: 0px 40px 0px;
   width:50px;
 }
 .home-img{
-  margin: 50px 0px 25px 0px;
+  margin: 150px 0px 25px 0px;
 }
 .home{
 text-align: center;
 border-block-color: red;
 height: 400px;
 font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-}
-.home-button{
-  position: relative;
-  padding : 0px 0px 0px 0px;
-  margin: 50px auto ;
-}
-.button-left{
-  position: relative;
-  margin-left: 40px;
 }
 
 </style>

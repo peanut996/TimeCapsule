@@ -102,6 +102,7 @@ body{
   border-radius:4px;
   border:1px solid #c8cccf;
   color:#6a6f77;
+  margin-bottom: 18px;
   outline:0;
 }
 .form-input:focus{
