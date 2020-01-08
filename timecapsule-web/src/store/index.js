@@ -8,14 +8,18 @@ export default new Vuex.Store({
     // 默认为未登录 已注册状态
     islogin: false,
     // 全局默认已经注册
-    isregister: true
+    isregister: true,
+    username: ''
   },
   mutations: {
     login (state) {
-      state.islogin = true
+      state.islogin = !state.islogin
     },
     register (state) {
       state.isregister = !state.isregister
+    },
+    getusername (state, username) {
+      state.username = username
     }
   },
   actions: {

@@ -6,13 +6,8 @@
           <h1 class="page-header">打开胶囊</h1>
           <div class="main">
             <label>胶囊Key:   </label>
-            <input class="form-uuid" type="text" >
-            <input class="form-submit" type="submit" @click="opencapsule" value="添加胶囊">
-            <div>
-              <textarea v-if="isget"  class="content"   cols="50" rows="8"></textarea>
-            <div>
-            </div>
-           </div>
+            <input class="form-uuid" v-model='uuid' type="text" >
+            <input class="form-submit" type="submit" @click="opencapsule" value="打开胶囊">
           </div>
         </div>
   </div>
@@ -28,17 +23,52 @@ export default {
     return {
       isget: false,
       // isregister: true,
-      capsule: {
-        content: '',
-        opentime: ''
-      },
-      uuid: ''
+      content: '',
+      opentime: '',
+      warncontent: '',
+      uuid: '',
+      nowtime: ''
     }
   },
   methods: {
     opencapsule: function () {
       // 根据uuid取出capsule 然后显示内容
-      alert('请处理axios业务逻辑')
+      this.axios.get('http://localhost:8080/capsule/' + this.uuid)
+        .then(response => {
+          // 逻辑
+          this.isget = true
+          this.content = response.data.content
+          this.opentime = response.data.opentime
+          this.nowtime = new Date().toJSON()
+          this.warncontent = response.data.warncontent
+          if (this.opentime < this.nowtime) {
+            this.$alert(this.content, '胶囊内容', {
+              confirmButtonText: '确认'
+            })
+          } else {
+            if (this.warncontent === undefined) {
+              this.$alert('请检查你的Key是否输入正确！', '错误', {
+                confirmButtonText: '确认'
+              })
+            } else {
+              this.$alert(this.warncontent, '警告', {
+                confirmButtonText: '确认'
+              })
+            }
+          }
+        })
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response.data)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+          } else if (error.request) {
+            console.log(error.request)
+          } else {
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
     }
   }
 }

@@ -3,14 +3,14 @@
     <userheader></userheader>
     <div class="user-profile-main">
       <div class="sidebar">
-        <img class="big-img" src="../../assets/tide_logo.png" alt="" >
+        <img class="big-img" src="../../assets/github-logo-128px.png" alt="" >
         <div></div>
         <div class="title">
             <span class="title-nickname">{{ nickname }}</span>
             <span class="title-username">{{ '@' + username }}</span>
         </div>
         <div class="sidebar-edit">
-          <button class="edit-button" >Log Out</button>
+          <button class="edit-button" @click="logout" >Log Out</button>
         </div>
       </div>
       <div class="user-profile-body">
@@ -52,19 +52,48 @@ export default {
   components: { userheader },
   data: function () {
     return {
-      nickname: 'Peanuts',
-      username: 'peanut996',
-      email: '849421294@qq.com',
+      avatar: '',
+      nickname: '',
+      username: '',
+      email: '',
       description: 'Nothing Special Here. '
     }
+  },
+  methods: {
+    logout: function () {
+      this.$store.commit('login')
+      this.$store.commit('getusername', '')
+      this.$router.push('/user-login')
+      this.$message.success('注销成功')
+    }
+  },
+  created: function () {
+    this.axios.get('http://localhost:8080/user/' + this.$store.state.username).then(response => {
+      this.username = response.data.username
+      this.nickname = response.data.nickname
+      this.email = response.data.email
+      this.avatar = response.data.avatar
+    })
+      .catch(error => {
+        if (error.response) {
+          console.log(error.response.data)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+        } else if (error.request) {
+          console.log(error.request)
+        } else {
+          console.log('Error', error.message)
+        }
+        console.log(error.config)
+      })
   }
 }
 </script>
 
 <style scoped>
 .user-profile-main{
+  width: 100%;
   margin-top: 40px;
-  height: 800px;
   /* background-color: aquamarine; */
 }
 .sidebar{
@@ -73,7 +102,7 @@ export default {
   background-color: white;
   width: 260px;
   height: 500px;
-  margin-left: 10%;
+  margin-left: 12%;
   margin-top: 5%;
   /* border: 1px black solid; */
   box-shadow: 1px 1px 12px 1px rgb(172, 172, 172);
@@ -122,12 +151,12 @@ export default {
     color: #fff;
 }
 .user-profile-body{
-  float: right;
+  float: left;
   /* background-color: chocolate; */
   width: 800px;
   height: 500px;
   margin-top: 5%;
-  margin-right: 6%;
+  margin-left: 5%;
   box-shadow: 1px 1px 12px 1px rgb(190, 190, 190);
 }
 .body-navbar{

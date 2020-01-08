@@ -8,7 +8,7 @@
                 <label class="form-label">用户名</label>
                 <input class="form-input" type="text" v-model="username" >
                 <label class="form-label">密码</label>
-                <input class="form-input" type="password">
+                <input class="form-input" v-model="password" type="password">
                 <p>
                     <input type="submit" @click="login" class="form-submit" value="登录">
                     <input type="submit" @click="register" class="form-submit" value="注册">
@@ -27,14 +27,37 @@ export default {
   data: function () {
     return {
       username: '',
-      password: ''
+      password: '',
+      forkdata: ''
     }
+  },
+  computed: {
   },
   methods: {
     login: function () {
-      this.$store.commit('login')
-      this.$message.success('登录成功!')
-      this.$router.push('/user-profile')
+      this.axios.get('http://localhost:8080/user/' + this.username)
+        .then(response => {
+          if (response.data.password === this.password) {
+            this.$store.commit('login')
+            this.$message.success('登录成功!')
+            this.$router.push('/user-profile')
+            this.$store.commit('getusername', response.data.username)
+          } else {
+            this.$message.error('登录失败!')
+          }
+        })
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response.data)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+          } else if (error.request) {
+            console.log(error.request)
+          } else {
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
     },
     register: function () {
       this.$store.commit('register')

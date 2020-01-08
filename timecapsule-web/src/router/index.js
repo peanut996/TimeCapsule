@@ -8,6 +8,7 @@ import Open from '../components/user/Open.vue'
 import Login from '../components/user/Login.vue'
 import Register from '../components/user/Register.vue'
 import Profile from '../components/user/Profile.vue'
+import About from '../views/About.vue'
 import store from '../store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -52,7 +53,7 @@ const routes = [
     path: '/user-open',
     component: Open,
     meta: {
-      auth: true
+      auth: false
     }
   },
   {
@@ -65,7 +66,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: About
   }
 ]
 

@@ -13,8 +13,8 @@
               <input class="form-input" type="text" v-model="user.nickname" >
               <label class="form-label" >邮箱</label>
               <input class="form-input" type="text" v-model="user.email" >
-              <label class="form-label" >头像</label>
-              <input class="form-file"  type="file" accept="image/png,image/gif,image/jpeg" @change="update"/>
+              <!-- <label class="form-label" >头像</label>
+              <input class="form-file"  type="file" accept="image/png,image/gif,image/jpeg" @change="update"/> -->
               <p>
                   <input type="submit" @click="register" class="form-submit" value="注册">
               </p>
@@ -41,12 +41,26 @@ export default {
     }
   },
   methods: {
-    update: function (file) {
-      // smms图床处理
-      // axios.get('',file).then((response)=>this.$message.success(response.data))
-      this.$message.success('获取图床地址成功')
-    },
+    // update: function (file) {
+    //   // smms图床处理
+    //   // axios.get('',file).then((response)=>this.$message.success(response.data))
+    //   this.$message.success('获取图床地址成功')
+    // },
     register: function () {
+      let user = this.user
+      this.axios.post('http://localhost:8080/user/', user)
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response.data)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+          } else if (error.request) {
+            console.log(error.request)
+          } else {
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
       this.$store.commit('register')
       this.$message.success('注册成功')
       this.$router.push('/user-login')

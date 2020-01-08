@@ -12,6 +12,9 @@
                 <li><router-link  class="nav-item" active-class="is-active" to="/user-open">打开</router-link ></li>
             </ul>
         </div>
+        <a class="github-ico" href="https://github.com/peanut996/TimeCapsule">
+            <img src='../assets/github-logo-64px.png' width=36px hetght=36px>
+        </a>
         </div>
         <router-view></router-view>
     </div>
@@ -97,5 +100,10 @@ a{ text-decoration: none;}
     background-color: #E5E5E5;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.125) inset;
     color: #555555;
+}
+.github-ico{
+    float: right;
+    padding: 2px;
+    margin-right: 0%;
 }
 </style>

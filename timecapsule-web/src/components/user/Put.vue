@@ -18,10 +18,10 @@
               <textarea class="form-text" rows="8" cols="50" v-model="capsule.content"></textarea>
               <span class="tips">胶囊内容不能超过5000字。</span>
               <label class="form-label">未到期警告信息</label>
-              <textarea class="form-text" rows="3" cols="50" v-model="capsule.warningcontent"></textarea>
+              <textarea class="form-text" rows="3" cols="50" v-model="capsule.warncontent"></textarea>
               <span class="tips">在 打开时间 之前打开胶囊，会看到提示信息。</span>
               <p>
-                <input class="form-submit" type="submit" @click="submitcapsule" value="添加胶囊">
+                <input class="form-submit" type="submit" @click="postcapsule" value="添加胶囊">
               </p>
             </div>
           </div>
@@ -48,16 +48,37 @@ export default {
         email: '',
         opentime: '',
         uuid: '',
-        warningcontent: ''
+        warncontent: ''
       }
     }
   },
   methods: {
-    submitcapsule: function () {
-      // 加入验证逻辑和判断
-      /* post
-       */
-      alert('test here!')
+    postcapsule: function () {
+      this.capsule.uuid = this.$uuid.v1()
+      this.capsule.username = this.$store.state.username
+      this.axios.post('https://api.godv2ray.online/capsule/', this.capsule)
+        .then(response => {
+          // 刷新uuid
+          this.$alert('请确认你的唯一Key: ' + this.capsule.uuid, '注意', {
+            confirmButtonText: '确认',
+            callback: action => {
+              this.$message.warning('即将进行页面刷新...')
+              setTimeout(function () { window.location.reload() }, 1500)
+            }
+          })
+        })
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response.data)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+          } else if (error.request) {
+            console.log(error.request)
+          } else {
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
     }
   }
 }
