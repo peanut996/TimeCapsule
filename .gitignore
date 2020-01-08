@@ -3,6 +3,8 @@
 .classpath
 .project
 .settings
+.idea
+.vscode
 ##filter databfile、sln file##
 *.idea
 *.iml
