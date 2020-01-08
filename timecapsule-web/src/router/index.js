@@ -9,6 +9,8 @@ import Login from '../components/user/Login.vue'
 import Register from '../components/user/Register.vue'
 import Profile from '../components/user/Profile.vue'
 import store from '../store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(VueRouter)
 
@@ -48,7 +50,10 @@ const routes = [
   },
   {
     path: '/user-open',
-    component: Open
+    component: Open,
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/admin',
@@ -81,6 +86,7 @@ router.beforeEach((to, from, next) => {
         next()
         return
       }
+      ElementUI.Message.error('尚未登录...')
       next({
         path: '/user-login'
       })

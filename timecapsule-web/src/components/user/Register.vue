@@ -48,6 +48,7 @@ export default {
     },
     register: function () {
       this.$store.commit('register')
+      this.$message.success('注册成功')
       this.$router.push('/user-login')
     }
   }

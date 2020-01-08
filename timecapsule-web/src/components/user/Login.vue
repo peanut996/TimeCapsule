@@ -38,7 +38,7 @@ export default {
     },
     register: function () {
       this.$store.commit('register')
-      this.$message.success('前往注册页面...')
+      this.$message.warning('前往注册页面...')
       this.$router.push('/user-register')
     }
   }

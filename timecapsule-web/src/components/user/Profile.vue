@@ -6,13 +6,39 @@
         <img class="big-img" src="../../assets/tide_logo.png" alt="" >
         <div></div>
         <div class="title">
-          <p>
             <span class="title-nickname">{{ nickname }}</span>
             <span class="title-username">{{ '@' + username }}</span>
-          </p>
         </div>
         <div class="sidebar-edit">
-          <button class="edit-button" >Edit Profile</button>
+          <button class="edit-button" >Log Out</button>
+        </div>
+      </div>
+      <div class="user-profile-body">
+        <div class='body-navbar' >
+          <span class="body-navbar-title">Overview</span>
+        </div>
+        <div class='body-content'>
+          <div class="body-content-left">
+            <div  class="content-item">
+              <span class="form-span">昵称</span>
+              <span class="content-span">{{ nickname }}</span>
+            </div>
+            <div  class="content-item">
+              <span class="form-span">邮箱</span>
+              <span class="content-span">{{ email }}</span>
+            </div>
+            <!-- <div class="content-item"></div> -->
+          </div>
+          <div class="body-content-right">
+            <div  class="content-item">
+              <span class="form-span">用户名</span>
+              <span class="content-span">{{ username }}</span>
+            </div>
+            <div  class="content-item">
+              <span class="form-span">描述</span>
+              <span class="content-span">{{ description }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -27,7 +53,9 @@ export default {
   data: function () {
     return {
       nickname: 'Peanuts',
-      username: 'peanut996'
+      username: 'peanut996',
+      email: '849421294@qq.com',
+      description: 'Nothing Special Here. '
     }
   }
 }
@@ -37,16 +65,18 @@ export default {
 .user-profile-main{
   margin-top: 40px;
   height: 800px;
+  /* background-color: aquamarine; */
 }
 .sidebar{
+  float: left;
   display: block;
   background-color: white;
   width: 260px;
-  height: 530px;
+  height: 500px;
   margin-left: 10%;
   margin-top: 5%;
   /* border: 1px black solid; */
-  box-shadow: 1px 1px 12px 1px gray;
+  box-shadow: 1px 1px 12px 1px rgb(172, 172, 172);
 }
 .big-img{
   width: 260px;
@@ -54,6 +84,11 @@ export default {
   /* background-color: black; */
   margin: 0px;
   border: 0px 0px 0px 0px grey solid;
+}
+.title{
+  /* background-color: red; */
+  margin: 30px 20px 50px;
+  font-size: 20px;
 }
 .title-nickname{
   display: block;
@@ -70,15 +105,90 @@ export default {
 .sidebar-edit{
   width: 260px;
   height: 40px;
-  /* background-color: brown; */
 }
 .edit-button{
   font-size: 14px;
-  width: 258px;
+  width: 230px;
   height: 40px;
-  margin: 0px 1px 0px 1px;
+  margin: 0px 15px 0px ;
   background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
   border: 1px solid rgba(27,31,35,.2);
   border-radius: .25em;
+}
+.edit-button:hover{
+    background: #cc0033;
+    border: 1px solid #cc0033;
+    filter: none;
+    color: #fff;
+}
+.user-profile-body{
+  float: right;
+  /* background-color: chocolate; */
+  width: 800px;
+  height: 500px;
+  margin-top: 5%;
+  margin-right: 6%;
+  box-shadow: 1px 1px 12px 1px rgb(190, 190, 190);
+}
+.body-navbar{
+  /* background-color: darksalmon; */
+  width: 800px;
+  height: 125px;
+  /* border: 1px black dashed;
+  border-bottom-style: none; */
+  box-shadow: 1px 1px 12px 1px rgb(190, 190, 190);
+}
+.body-navbar-title{
+  font-size: 64px;
+  font-weight: bolder;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  padding: 12.5px 0px;
+  font-family: arial,sans-serif;
+  line-height: 100px;
+}
+.body-content{
+  /* background-color: aquamarine; */
+  width: 100%;
+  height: 375px;
+}
+.body-content-left{
+  float: left;
+  height: 100%;
+  width: 50%;
+  /* background-color: cornflowerblue; */
+}
+.body-content-right{
+  float: left;
+  height: 100%;
+  width: 50%;
+  /* background-color: royalblue; */
+}
+.content-item{
+  width: 100%;
+  height: 187.5px;
+  background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+}
+.form-span{
+  display: block;
+  font-size: 36px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;/*斜体*/
+  font-weight: bold;/*加粗*/
+  /* background-color: coral; */
+  height: 60px;
+  padding: 52px 0px 0px 70px;
+}
+.content-span{
+  display: block;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 24px;/*设置字体的大小*/
+  font-weight: bold;/*加粗*/
+  /* background-color: greenyellow; */
+  height: 76px;
+  padding-top: 5px;
+  padding-left: 70px;
 }
 </style>

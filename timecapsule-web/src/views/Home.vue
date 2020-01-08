@@ -25,7 +25,8 @@ export default {
       this.$router.push('/user')
     },
     admin: function () {
-      this.$router.push('/admin')
+      // this.$router.push('/admin')
+      window.location.href = 'https://api.godv2ray.online/swagger-ui.html'
     }
   }
 }

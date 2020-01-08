@@ -11,7 +11,8 @@
               <label class="form-label">你的邮箱</label>
               <input class="form-input" v-model="capsule.email" >
               <label class="form-label">打开时间</label>
-              <input class="form-input" v-model="capsule.opentime" >
+              <!-- <input class="form-input" v-model="capsule.opentime" > -->
+              <el-date-picker v-model="capsule.opentime" class="form-input"></el-date-picker>
               <span class="tips">打开时间之前你是看不见的。</span>
               <label class="form-label">胶囊内容</label>
               <textarea class="form-text" rows="8" cols="50" v-model="capsule.content"></textarea>
