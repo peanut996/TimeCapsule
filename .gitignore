@@ -6,6 +6,7 @@
 .idea
 .vscode
 ##filter databfile、sln file##
+*.code-worksapce
 *.idea
 *.iml
 *.mdb
