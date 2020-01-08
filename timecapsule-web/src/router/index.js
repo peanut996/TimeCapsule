@@ -8,6 +8,7 @@ import Open from '../components/user/Open.vue'
 import Login from '../components/user/Login.vue'
 import Register from '../components/user/Register.vue'
 import Profile from '../components/user/Profile.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -68,24 +69,25 @@ const router = new VueRouter({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   // 根据字段判断是否路由过滤
-//   if (to.matched.some(record => record.meta.auth)) {
-//     if (this.store.state.islogin === true) {
-//       next()
-//     } else {
-//       // 防止无限循环
-//       if (to.name === 'user-login') {
-//         next()
-//         return
-//       }
-//       next({
-//         path: '/user-login'
-//       })
-//     }
-//   } else {
-//     next()// 若点击的是不需要验证的页面,则进行正常的路由跳转
-//   }
-// })
+// 添加路由钩子
+router.beforeEach((to, from, next) => {
+  // 根据字段判断是否路由过滤
+  if (to.matched.some(record => record.meta.auth)) {
+    if (store.state.islogin === true) {
+      next()
+    } else {
+      // 防止无限循环
+      if (to.name === 'user-login') {
+        next()
+        return
+      }
+      next({
+        path: '/user-login'
+      })
+    }
+  } else {
+    next()// 若点击的是不需要验证的页面,则进行正常的路由跳转
+  }
+})
 
 export default router

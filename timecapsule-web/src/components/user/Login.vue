@@ -32,12 +32,12 @@ export default {
   },
   methods: {
     login: function () {
-      this.$parent.islogin = true
+      this.$store.commit('login')
       this.$message.success('登录成功!')
       this.$router.push('/user-profile')
     },
     register: function () {
-      this.$parent.isregister = false
+      this.$store.commit('register')
       this.$message.success('前往注册页面...')
       this.$router.push('/user-register')
     }

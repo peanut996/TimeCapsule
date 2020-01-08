@@ -47,7 +47,7 @@ export default {
       this.$message.success('获取图床地址成功')
     },
     register: function () {
-      this.$parent.isregister = true
+      this.$store.commit('register')
       this.$router.push('/user-login')
     }
   }
