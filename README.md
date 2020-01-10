@@ -6,7 +6,7 @@
 
 ### 技术栈
 
-+ 后端： `springboot` `Jpa`
++ 后端： `springboot` `JPA`
 + 前端： `vue.js` `vuex` `vue-router`
 
 ### 项目安装
@@ -40,4 +40,5 @@ npm run serve
 ### 注意事项
 
 因为前后端运行在一个服务器上，因此并未开放跨域处理，在使用vue-cli调试的时候请自行解决  
-遇到es-lint报`no-console`错误时，请手动修改`node_modules/eslint/lib/rules/no-console.js`line 25为`recommended: false`即可
+遇到es-lint报`no-console`错误时，请手动修改`node_modules/eslint/lib/rules/no-console.js` line 25为  
+`recommended: false`即可
