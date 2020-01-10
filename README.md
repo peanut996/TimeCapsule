@@ -18,6 +18,8 @@
 
 请自行安装所需要环境依赖
 ```shell
+
+#下载
 git clone https://github.com/peanut996/TimeCapsule.git
 
 #后端
@@ -28,6 +30,7 @@ mvn install #安装maven dependencies
 cd ../timecapsule-web/
 npm install #安装依赖
 npm run serve 
+
 ```
 
 ### 项目地址
