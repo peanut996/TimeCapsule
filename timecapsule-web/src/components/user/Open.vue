@@ -36,25 +36,29 @@ export default {
       this.axios.get('http://localhost:8080/capsule/' + this.uuid)
         .then(response => {
           // 逻辑
-          this.isget = true
-          this.content = response.data.content
-          this.opentime = response.data.opentime
-          this.nowtime = new Date().toJSON()
-          this.warncontent = response.data.warncontent
-          if (this.opentime < this.nowtime) {
-            this.$alert(this.content, '胶囊内容', {
-              confirmButtonText: '确认'
-            })
-          } else {
-            if (this.warncontent === undefined) {
-              this.$alert('请检查你的Key是否输入正确！', '错误', {
+          if (response.status === 200) {
+            this.isget = true
+            this.content = response.data.content
+            this.opentime = response.data.opentime
+            this.nowtime = new Date().toJSON()
+            this.warncontent = response.data.warncontent
+            if (this.opentime < this.nowtime) {
+              this.$alert(this.content, '胶囊内容', {
                 confirmButtonText: '确认'
               })
             } else {
-              this.$alert(this.warncontent, '警告', {
-                confirmButtonText: '确认'
-              })
+              if (this.warncontent === undefined) {
+                this.$alert('请检查你的Key是否输入正确！', '错误', {
+                  confirmButtonText: '确认'
+                })
+              } else {
+                this.$alert(this.warncontent, '警告', {
+                  confirmButtonText: '确认'
+                })
+              }
             }
+          } else {
+            this.$message.error('请求错误')
           }
         })
         .catch(error => {

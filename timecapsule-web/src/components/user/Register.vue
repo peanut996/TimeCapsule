@@ -49,6 +49,15 @@ export default {
     register: function () {
       let user = this.user
       this.axios.post('http://localhost:8080/user/', user)
+        .then(response => {
+          if (response.status === 200) {
+            this.$store.commit('register')
+            this.$message.success('注册成功')
+            this.$router.push('/user-login')
+          } else {
+            this.$message.error('请求错误')
+          }
+        })
         .catch(error => {
           if (error.response) {
             console.log(error.response.data)
@@ -61,12 +70,8 @@ export default {
           }
           console.log(error.config)
         })
-      this.$store.commit('register')
-      this.$message.success('注册成功')
-      this.$router.push('/user-login')
     }
   }
-
 }
 </script>
 

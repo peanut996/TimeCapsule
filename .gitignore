@@ -1,3 +1,6 @@
+##ignore folders
+s
+
 ##ignore this file##
 /target/
 .classpath
@@ -40,4 +43,8 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+<<<<<<< Updated upstream
 timecapsule/src/test/.DS_Store
+=======
+timecapsule/src/test/.DS_Store
+>>>>>>> Stashed changes

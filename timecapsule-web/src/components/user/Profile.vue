@@ -69,10 +69,14 @@ export default {
   },
   created: function () {
     this.axios.get('http://localhost:8080/user/' + this.$store.state.username).then(response => {
-      this.username = response.data.username
-      this.nickname = response.data.nickname
-      this.email = response.data.email
-      this.avatar = response.data.avatar
+      if (response.status === 200) {
+        this.username = response.data.username
+        this.nickname = response.data.nickname
+        this.email = response.data.email
+        this.avatar = response.data.avatar
+      } else {
+        this.$message.error('请求错误')
+      }
     })
       .catch(error => {
         if (error.response) {

@@ -37,13 +37,17 @@ export default {
     login: function () {
       this.axios.get('http://localhost:8080/user/' + this.username)
         .then(response => {
-          if (response.data.password === this.password) {
-            this.$store.commit('login')
-            this.$message.success('登录成功!')
-            this.$router.push('/user-profile')
-            this.$store.commit('getusername', response.data.username)
+          if (response.status === 200) {
+            if (response.data.password === this.password) {
+              this.$store.commit('login')
+              this.$message.success('登录成功!')
+              this.$router.push('/user-profile')
+              this.$store.commit('getusername', response.data.username)
+            } else {
+              this.$message.error('登录失败!')
+            }
           } else {
-            this.$message.error('登录失败!')
+            this.$message.error('请求错误')
           }
         })
         .catch(error => {
