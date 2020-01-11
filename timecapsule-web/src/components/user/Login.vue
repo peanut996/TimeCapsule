@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     login: function () {
-      this.axios.get('http://localhost:8080/user/' + this.username)
+      this.axios.get('https://api.godv2ray.online/user/' + this.username)
         .then(response => {
           if (response.status === 200) {
             if (response.data.password === this.password) {

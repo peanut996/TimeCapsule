@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.peanuts</groupId>
     <artifactId>timecapsule</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <name>timecapsule</name>
     <description>A backend used Spring Boot for project 'TimeCapsule'</description>
     <packaging>war</packaging>

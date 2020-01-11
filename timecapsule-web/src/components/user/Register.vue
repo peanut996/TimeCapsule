@@ -48,9 +48,9 @@ export default {
     // },
     register: function () {
       let user = this.user
-      this.axios.post('http://localhost:8080/user/', user)
+      this.axios.post('https://api.godv2ray.online/user/', user)
         .then(response => {
-          if (response.status === 200) {
+          if (response.status === 201) {
             this.$store.commit('register')
             this.$message.success('注册成功')
             this.$router.push('/user-login')

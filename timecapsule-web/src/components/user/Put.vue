@@ -56,10 +56,10 @@ export default {
     postcapsule: function () {
       this.capsule.uuid = this.$uuid.v1()
       this.capsule.username = this.$store.state.username
-      this.axios.post('https://localhost:8080/capsule/', this.capsule)
+      this.axios.post('https://api.godv2ray.online/capsule/', this.capsule)
         .then(response => {
           // 刷新uuid
-          if (response.status === 200) {
+          if (response.status === 201) {
             this.$alert('请确认你的唯一Key: ' + this.capsule.uuid, '注意', {
               confirmButtonText: '确认',
               callback: action => {
