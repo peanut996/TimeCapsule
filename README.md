@@ -9,7 +9,9 @@
 + 后端： `springboot` `JPA`
 + 前端： `vue.js` `vuex` `vue-router`
 
-### 项目安装
+### 项目demo
+
+[时间胶囊](https://godv2ray.online/tomcat/timecapsule)
 
 #### 环境要求
 
