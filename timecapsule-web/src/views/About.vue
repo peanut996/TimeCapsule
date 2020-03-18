@@ -6,7 +6,7 @@
     <h2> username ： {{ username }}</h2>
     <h2> uuid ： {{ getuuid }}</h2>
     <div>
-      <button class="button" @click="getuuid">change</button>
+      <button @click='get_history' width="40px" height="40px" value='获取历史记录'></button>
     </div>
   </div>
 </template>
@@ -19,27 +19,15 @@ export default {
   },
   inject: ['reload'],
   methods: {
-    uuid: function () {
-      var s = []
-      var hexDigits = '0123456789abcdef'
-      for (var i = 0; i < 36; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1)
-      }
-      s[14] = '4'
-      s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1)
-      s[8] = s[13] = s[18] = s[23] = '-'
-      this.uuidA = s.join('')
-      console.log(s.join(''), 's.join("")')
-      return this.uuidA
+    get_history: function () {
+      this.axios.get('https://bird.ioliu.cn/v2?url=https://sm.ms/api/v2/history?format=json')
+        .then(response => { console.log(response) })
     },
     change: function () {
       window.location.reload()
     }
   },
   computed: {
-    getuuid: function () {
-      return this.uuid()
-    },
     loginstate: function () {
       return this.$store.state.islogin
     },

@@ -48,7 +48,7 @@ export default {
     // },
     register: function () {
       let user = this.user
-      this.axios.post('https://api.godv2ray.online/user/', user)
+      this.axios.post('https://godv2ray.online/tomcat/timecapsule/user/', user)
         .then(response => {
           if (response.status === 201) {
             this.$store.commit('register')

@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     login: function () {
-      this.axios.get('https://api.godv2ray.online/user/' + this.username)
+      this.axios.get('https://godv2ray.online/tomcat/timecapsule/user/' + this.username)
         .then(response => {
           if (response.status === 200) {
             if (response.data.password === this.password) {

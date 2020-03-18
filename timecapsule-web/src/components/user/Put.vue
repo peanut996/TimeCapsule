@@ -56,7 +56,7 @@ export default {
     postcapsule: function () {
       this.capsule.uuid = this.$uuid.v1()
       this.capsule.username = this.$store.state.username
-      this.axios.post('https://api.godv2ray.online/capsule/', this.capsule)
+      this.axios.post('https://godv2ray.online/tomcat/timecapsule/capsule/', this.capsule)
         .then(response => {
           // 刷新uuid
           if (response.status === 201) {

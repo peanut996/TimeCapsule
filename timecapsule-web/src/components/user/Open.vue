@@ -33,7 +33,7 @@ export default {
   methods: {
     opencapsule: function () {
       // 根据uuid取出capsule 然后显示内容
-      this.axios.get('https://api.godv2ray.online/capsule/' + this.uuid)
+      this.axios.get('https://godv2ray.online/tomcat/timecapsule/capsule/' + this.uuid)
         .then(response => {
           // 逻辑
           if (response.status === 200) {

@@ -68,7 +68,7 @@ export default {
     }
   },
   created: function () {
-    this.axios.get('https://api.godv2ray.online/user/' + this.$store.state.username).then(response => {
+    this.axios.get('https://godv2ray.online/tomcat/timecapsule/user/' + this.$store.state.username).then(response => {
       if (response.status === 200) {
         this.username = response.data.username
         this.nickname = response.data.nickname

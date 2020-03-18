@@ -26,7 +26,7 @@ export default {
     },
     admin: function () {
       // this.$router.push('/admin')
-      window.location.href = 'https://api.godv2ray.online/swagger-ui.html'
+      window.location.href = 'https://godv2ray.online/tomcat/timecapsule/swagger-ui.html'
     }
   }
 }
