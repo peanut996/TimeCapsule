@@ -33,12 +33,12 @@ npm run serve
 
 ```
 
-### 项目地址
-
-[时间胶囊](http://godv2ray.online)  
 
 ### 注意事项
 
 因为前后端运行在一个服务器上，因此并未开放跨域处理，在使用vue-cli调试的时候请自行解决  
 遇到es-lint报`no-console`错误时，请手动修改`node_modules/eslint/lib/rules/no-console.js` line 25为  
-`recommended: false`即可
+`recommended: false`即可  
+  
+ 
+现已弃坑，等过段时间使用`Go`或`Rust`重写后端
