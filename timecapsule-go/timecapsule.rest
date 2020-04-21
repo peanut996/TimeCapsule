@@ -1,0 +1,54 @@
+GET http://localhost:8080/admin/ 
+
+###
+GET http://localhost:8080/capsule/ 
+
+### hellp
+GET http://localhost:8080/user/
+
+###
+GET http://localhost:8080/user/test
+
+###
+GET http://localhost:8080/capsule/0399b02e-c6ab-447c-b880-c9cdb91acb4f
+
+###
+GET http://localhost:8080/user/Go Test Time3
+
+
+###
+GET http://godv2ray.online/tomcat/timecapsule/user/Go Test Time3/
+
+### 
+POST http://localhost:8080/capsule/
+Content-Type: application/json
+
+  {
+    "id": 17,
+    "content": "i like rust",
+    "opentime": "2020-01-08 00:00:00",
+    "uuid": "fake-uuid",
+    "username": "rust",
+    "warncontent": "rust",
+    "email": "fake email"
+  }
+###
+PUT http://localhost:8080/capsule/fake-uuid
+Content-Type: application/json
+
+
+  {
+    "id": 17,
+    "content": "i like rust forever",
+    "opentime": "2020-01-08 00:00:00",
+    "uuid": "fake-uuid",
+    "username": "rust",
+    "warncontent": "rust",
+    "email": "fake email"
+  }
+
+###
+DELETE  http://localhost:8080/capsule/fake-uuid
+
+###
+GET http://localhost:8080/
