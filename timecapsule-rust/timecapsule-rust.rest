@@ -1,0 +1,116 @@
+GET  http://127.0.0.1:8088/admin/
+
+###
+GET http://127.0.0.1:8088/user/
+
+###
+PUT   http://127.0.0.1:8088/admin/Hello world2
+Content-Type: application/json
+
+{
+    "id": 100,
+    "account": "Hello world2",
+    "password": "1",
+    "description": "A new test account for Actix-Web",
+    "avatar": "None"
+}
+
+
+###
+DELETE  http://127.0.0.1:8088/admin/Hello world2
+
+###
+GET  http://127.0.0.1:8088/user/
+###
+POST  http://127.0.0.1:8088/user/
+Content-Type: application/json
+
+  {
+    "id": 888,
+    "username": "Actix_web",
+    "password": "Diesel",
+    "nickname": "RestApi",
+    "email": "Djsdadsa",
+    "createtime": "2020-04-07T10:39:14",
+    "updatetime": "2020-04-07T10:39:14",
+    "avatar": "None"
+  }
+
+###
+PUT  http://127.0.0.1:8088/user/Actix_web
+Content-Type: application/json
+
+  {
+    "id": 888,
+    "username": "Actix_web",
+    "password": "Diesel",
+    "nickname": "RestApi",
+    "email": "Rust_Ocean@rust.com",
+    "createtime": "2020-04-07T10:39:14",
+    "updatetime": "2020-04-07T10:39:14",
+    "avatar": "None"
+  }
+
+
+###
+DELETE   http://127.0.0.1:8088/user/Actix_web
+
+
+
+###
+PUT   http://127.0.0.1:8088/user/Go Test
+
+Content-Type: application/json
+
+
+  {
+    "id": 27,
+    "username": "Rust Test",
+    "password": "12345678",
+    "nickname": "Gopher",
+    "email": "",
+    "createtime": "2020-04-07T10:39:14",
+    "updatetime": "2020-04-07T10:39:14",
+    "avatar": ""
+  }
+
+
+
+
+###
+GET  http://127.0.0.1:8088/capsule/
+###
+GET  http://127.0.0.1:8088/capsule/actix-web-test-uuid
+###
+POST  http://127.0.0.1:8088/capsule/
+Content-Type: application/json
+
+{
+  "id": 100,
+  "content": "心想事成，万事如意",
+  "createtime": "2019-12-31T16:00:00",
+  "opentime": "2020-01-31T16:00:00",
+  "username": "peanuts",
+  "uuid": "actix-web-test-uuid",
+  "warncontent": "别偷看！",
+  "email": "849421294@qq.com"
+}
+
+###
+PUT http://127.0.0.1:8088/capsule/actix-web-test-uuid
+Content-Type: application/json
+
+{
+  "id": 100,
+  "content": "Actix-web && Diesel",
+  "createtime": "2019-12-31T16:00:00",
+  "opentime": "2020-01-31T16:00:00",
+  "username": "peanuts",
+  "uuid": "actix-web-test-uuid",
+  "warncontent": "别偷看！",
+  "email": "849421294@qq.com"
+}
+
+###
+Delete http://127.0.0.1:8088/capsule/actix-web-test-uuid
+
