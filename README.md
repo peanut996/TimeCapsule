@@ -8,8 +8,9 @@
 
 #### 后端
 
-+ `Java`:`springboot` `JPA`
++ `Java`:`Springboot` `JPA`
 + `Go`: `Gin` `GORM`
++ `Rust`：`Actix-Web` `Diesel` 
 
 #### 前端
 
@@ -20,14 +21,9 @@
 [时间胶囊](https://godv2ray.online/tomcat/timecapsule)
 
 #### 环境要求
-
-+ go
-+ jdk1.8
-+ maven
-+ npm
+(暂时省略，后续将在每个模块具体说明)
 
 请自行安装所需要环境依赖
 
 ### 注意事项
-
-已使用Go重写后端，但未部署，后续还会使用rust的`actix-web`重写后端，敬请期待。
+`Rust`和`Go`的错误处理有点烂，目前只作为备用替代品。
