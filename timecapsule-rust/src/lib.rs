@@ -18,15 +18,6 @@ use dotenv::dotenv;
 use env_logger::Env;
 use std::env;
 
-// use r2d2::Pool;
-// use diesel::r2d2::{PoolError}
-
-// enum Error{
-//     DataBaseError: Error,
-//     ResponseError,
-//     RequestError,
-// }
-
 pub fn establish_connection() -> MysqlConnection {
     dotenv().ok();
 
@@ -48,7 +39,7 @@ pub fn get_connection_pool() -> Result<MysqlPool, PoolError> {
 
 pub async fn server_setup() -> std::io::Result<()> {
     env_logger::from_env(Env::default().default_filter_or("info")).init();
-    //println!("{:?}", chrono::offset::Local::now());
+    
     let pool = get_connection_pool().unwrap_or_else(|_| panic!("Get poor error"));
 
     HttpServer::new(move || {
@@ -59,8 +50,6 @@ pub async fn server_setup() -> std::io::Result<()> {
                 web::scope("/user")
                     .app_data(web::Json::<User>::configure(|cfg| {
                         cfg.error_handler(|err, _req| {
-                            println!("{:?}", err);
-                            // create custom error response
                             error::InternalError::from_response(
                                 err,
                                 HttpResponse::Conflict().finish(),
