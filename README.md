@@ -18,7 +18,7 @@
 
 ### 项目demo
 
-[时间胶囊](https://godv2ray.online/tomcat/timecapsule)
+[时间胶囊](https://demo.peanut996.cn/tomcat/timecapsule)
 
 #### 环境要求
 (暂时省略，后续将在每个模块具体说明)
